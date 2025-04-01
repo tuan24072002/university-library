@@ -1,9 +1,35 @@
 import { Client as WorkflowClient } from "@upstash/workflow";
 import config from "./config";
+import { Client as QStashClient, resend } from "@upstash/qstash";
 
-const workflowClient = new WorkflowClient({
+export const workflowClient = new WorkflowClient({
   baseUrl: config.env.uptash.qstashUrl,
   token: config.env.uptash.qstashToken,
 });
 
-export default workflowClient;
+const qstashClient = new QStashClient({
+  token: config.env.uptash.qstashToken,
+});
+
+export const sendEmail = async ({
+  email,
+  subject,
+  message,
+}: {
+  email: string;
+  subject: string;
+  message: string;
+}) => {
+  await qstashClient.publishJSON({
+    api: {
+      name: "email",
+      provider: resend({ token: config.env.resendToken }),
+    },
+    body: {
+      from: "Library <tranleanhtuan.site>",
+      to: [email],
+      subject,
+      html: message,
+    },
+  });
+};

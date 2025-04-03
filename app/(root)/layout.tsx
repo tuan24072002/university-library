@@ -22,7 +22,7 @@ const layout = async ({ children }: { children: React.ReactNode }) => {
             .where(eq(users.id, session.user.id))
             .limit(1);
 
-        if (user[0].lastActivity === new Date().toISOString().slice(0, 10)) return;
+        if (user[0]?.lastActivity === new Date().toISOString().slice(0, 10)) return;
 
         await db
             .update(users)
@@ -32,7 +32,7 @@ const layout = async ({ children }: { children: React.ReactNode }) => {
     return (
         <main className='root-container'>
             <div className="mx-auto max-w-7xl">
-                <Header session={session} />
+                <Header />
                 <div className="mt-20 pb-20">
                     {children}
                 </div>

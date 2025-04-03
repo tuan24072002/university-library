@@ -8,6 +8,27 @@
       "when": 1743391812925,
       "tag": "0000_far_kabuki",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1743586412521,
+      "tag": "0001_flimsy_human_robot",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1743586745267,
+      "tag": "0002_luxuriant_red_skull",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1743670009123,
+      "tag": "0003_fancy_malice",
+      "breakpoints": true
     }
   ]
 }

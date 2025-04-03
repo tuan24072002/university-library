@@ -35,6 +35,7 @@ const BorrowBook = ({ bookId, userId, borrowingEligibility }: Props) => {
                     title: "Success",
                     description: "Book borrowed successfully",
                 })
+                router.push("/my-profile");
             } else {
                 toast({
                     title: "Error",
